@@ -9,6 +9,7 @@ pnpm-debug.log*
 
 # ------------------------------
 # Environment variables
+# my bad
 # ------------------------------
 .env
 .env.local
