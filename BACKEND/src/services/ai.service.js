@@ -44,30 +44,43 @@ const interviewReportSchema = z.object({
 
 async function generateInterviewReport({ resume, selfDescription, jobDescription }) {
     try {
-        const prompt = `You MUST return ONLY valid JSON.
-                Follow this exact schema strictly:
-                ${JSON.stringify(zodToJsonSchema(interviewReportSchema), null, 2)}
-                Do not add extra fields.
-                Do not change field names.
-                Do not return text outside JSON.
 
-                Now generate the interview report:
+        const prompt = `
+Generate a COMPLETE interview report.
 
-                Resume: ${resume}
-                Self Description: ${selfDescription}
-                Job Description: ${jobDescription}
-        `;
+MANDATORY:
+- Include ALL fields
+- Do NOT skip any field
+- matchScore between 60–95
+
+Return ONLY JSON:
+
+{
+  "matchScore": number,
+  "technicalQuestions": [{ "question": "", "intention": "", "answer": "" }],
+  "behavioralQuestions": [{ "question": "", "intention": "", "answer": "" }],
+  "skillGaps": [{ "skill": "", "severity": "low | medium | high" }],
+  "preparationPlan": [{ "day": number, "focus": "", "tasks": [""] }]
+}
+
+Resume: ${resume}
+Self Description: ${selfDescription}
+Job Description: ${jobDescription}
+`;
         const response = await ai.models.generateContent({
-            model: "gemini-2.0-flash",
+            model: "gemini-2.5-flash",
             contents: prompt,
             config: {
                 responseMimeType: "application/json",
-                responseJsonSchema: zodToJsonSchema(interviewReportSchema)
+                responseSchema: zodToJsonSchema(interviewReportSchema),
+
             }
         })
 
+        // console.log("PARSED_DATA=", data);
+        return JSON.parse(response.text);
         // const interviewReport = interviewReportSchema.parse(JSON.parse(response.text));
-        console.log(response.text);
+    
     } catch (err) {
         if (err.status === 429) {
             console.log("Quota exceeded. Try later.");

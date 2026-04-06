@@ -29,7 +29,7 @@ async function RegisterUserController(req, res) {
         password: hash
     })
 
-    const token = await jwt.sign(
+    const token = jwt.sign(
         { id: user._id, email: user.email, username: user.username },
         process.env.JWT_SECRET,
         { expiresIn: "1d" }

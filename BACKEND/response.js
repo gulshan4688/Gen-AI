@@ -1,34 +1,24 @@
-const res = {
-  "candidate": {
-    "name": "Ankur Sharma",
-    "contact": {
-      "email": "ankur.sharma@email.com",
-      "phone": "+91 9876543210"
-    }
-  },
-  "job": {
-    "position": "Backend Developer (Node.js)"
-  },
-  "profile": {
-    "experience_summary": "3+ years of professional experience as a MERN stack developer with a specialized focus on backend architecture, API design, and database performance tuning. Proven track record of optimizing system response times and implementing secure authentication protocols."
-  },
-  "evaluation": {
-    "technical_assessment": "Highly proficient in Node.js, Express.js, and MongoDB. Demonstrates strong knowledge of RESTful principles and JWT authentication. Shows intermediate familiarity with React/Redux for full-stack integration. Basic knowledge of DevOps tools like Docker and Redis, aligning with 'plus' requirements in the JD.",
-    "job_match": "The candidate meets the 3+ years experience requirement and demonstrates core competency in Node.js and MongoDB. While the candidate has not extensively used Redis in production, their background in performance optimization and query indexing suggests a strong foundation for picking up caching strategies quickly.",
-    "score": 8.5,
-    "recommendation": "Shortlist for Technical Interview. The candidate's strong backend focus and performance optimization experience make them a good fit for scalable API development."
-  },
-  "strengths": [
-    "Achieved 30% improvement in database query response times in current role.",
-    "Experienced in implementing role-based access control (RBAC) and JWT.",
-    "Hands-on exploration of AI integrations (Gemini API) for modern application features.",
-    "Strong understanding of event-driven architecture via Socket.io projects."
+const PARSED_DATA= {
+  matchScore: 88,
+  technicalQuestions: [
+    'question": "Explain the event loop in Node.js and how it handles asynchronous operations. Provide an example.", "intention": "Assess core Node.js understanding and asynchronous programming concepts.", "answer": "The candidate should explain the call stack, event loop, callback queue, and microtask queue, and how non-blocking I/O is achieved in Node.js. They should provide an example like fs.readFile or setTimeout to illustrate."}',
+    'question": "You mentioned optimizing database queries. What specific strategies or techniques did you employ to improve MongoDB performance in your previous role?", "intention": "Evaluate practical experience with MongoDB performance tuning and optimization beyond theoretical knowledge.", "answer": "The candidate should discuss specific techniques such as creating appropriate indexes (single, compound, text), using explain() to analyze query performance, schema design considerations, and potentially query projection or aggregate pipeline optimization."}',
+    'question": "Describe the process of implementing JWT-based authentication and role-based access control (RBAC) in a Node.js application.", "intention": "Confirm practical understanding of security mechanisms and access control as mentioned in the resume.", "answer": "The candidate should explain token generation (signing, payload), client-side storage, middleware for protected routes, token verification, extracting user roles from the JWT payload, and using subsequent middleware to enforce role-based permissions."}',
+    `question": "The job description mentions Redis. How would you approach integrating Redis for caching in a Node.js application to improve API response times?", "intention": "Probe the candidate's understanding of caching strategies and their conceptual knowledge of Redis, even if they haven't used it extensively in production.", "answer": "The candidate should discuss what data to cache (e.g., frequently accessed, expensive computations), using a Redis client library, implementing caching patterns like cache-aside, setting appropriate expiry times for cached data, and strategies for cache invalidation."}`
   ],
-  "gaps": [
-    "Limited production-level experience with Redis (a preferred skill).",
-    "Basic experience with Docker/DevOps, may require support for advanced deployment pipelines."
+  behavioralQuestions: [
+    'question": "Tell me about a time you had to collaborate closely with a frontend or DevOps team to deliver a feature or fix a bug. What was your role and what was the outcome?", "intention": "Assess teamwork, communication, and collaboration skills, which are crucial for this role.", "answer": "The candidate should describe a specific situation, their actions, the challenges faced, how they communicated and collaborated with other teams, and the positive outcome or lessons learned."}',
+    'question": "Can you describe a challenging technical problem you faced while optimizing an API or a database query, and how you went about solving it?", "intention": "Gauge problem-solving skills, critical thinking, and depth of experience in performance optimization.", "answer": "The candidate should articulate the problem, the steps taken to diagnose and resolve it (e.g., profiling, debugging, research), the solution implemented, and the impact or improvements achieved."}',
+    `question": "You mentioned exploring AI integrations and scalable backend architectures. How do you approach learning new technologies or concepts that are relevant to your role?", "intention": "Understand the candidate's initiative for continuous learning, self-improvement, and how they apply new knowledge.", "answer": "The candidate should describe their learning process, such as using online courses, official documentation, building personal projects, reading technical blogs, or participating in communities, and how they internalize and apply these new skills."}`
   ],
-  "projects": {
-    "feedback": "The AI Resume Builder and Real-time Chat applications demonstrate strong technical capability, particularly in file generation (Puppeteer) and event-driven systems (Socket.io)."
-  }
+  skillGaps: [
+    'skill": "Redis/Advanced Caching", "severity": "medium"}',
+    'skill": "Docker & Cloud Platforms", "severity": "low"}',
+    'skill": "API Testing Frameworks", "severity": "low"}'
+  ],
+  preparationPlan: [
+    'day": 1, "focus": "Redis & Caching Strategies", "tasks": ["Deep dive into Redis data structures and commands", "Implement cache-aside pattern with a Node.js application using a Redis client", "Research cache invalidation strategies and optimal TTL settings"]}',
+    'day": 2, "focus": "Docker for Node.js Applications", "tasks": ["Learn Dockerfile best practices for Node.js applications", "Containerize a simple Node.js and MongoDB application using Docker Compose", "Practice basic Docker commands (build, run, logs, inspect)"]}',
+    'day": 3, "focus": "Advanced MongoDB Optimization & API Testing", "tasks": ["Explore advanced MongoDB indexing (e.g., partial, geospatial) and aggregation pipeline optimizations", "Learn unit and integration testing frameworks (e.g., Jest, Mocha) for Node.js APIs", "Practice writing comprehensive tests for a RESTful API endpoint"]}'
+  ]
 }

@@ -31,7 +31,7 @@ const mongoose = require("mongoose")
 
 const technicalQuestionsSchema = new mongoose.Schema({
     question: {
-        type: string,
+        type: String,
         required: [true, "Technical questions are required"]
     },
     intention: {
@@ -48,7 +48,7 @@ const technicalQuestionsSchema = new mongoose.Schema({
 
 const behaviouralQuestionsSchema = new mongoose.Schema({
     question: {
-        type: string,
+        type: String,
         required: [true, "Technical questions are required"]
     },
     intention: {
@@ -59,43 +59,43 @@ const behaviouralQuestionsSchema = new mongoose.Schema({
         type: String,
         required: [true, "Answer is required"]
     }
-},{
-    _id : false
+}, {
+    _id: false
 })
 
 const skillGapSchema = new mongoose.Schema({
-    skill : {
-        type : String,
-        required : [true, "Skill is required"]
+    skill: {
+        type: String,
+        required: [true, "Skill is required"]
     },
-    severity : {
-        type  : String,
-        enum : ["low", "medium", "high"],
-        required : [true, "severity is required"]
+    severity: {
+        type: String,
+        enum: ["low", "medium", "high"],
+        required: [true, "severity is required"]
     }
-},{
-    _id : false
+}, {
+    _id: false
 })
 
 const preparationPlanSchema = new mongoose.Schema({
-    day : {
-        type : String,
-        required : [true, "Day is required"]
+    day: {
+        type: String,
+        required: [true, "Day is required"]
     },
-    focus : {
-        type : String,
-        required : [true, "Focus is required"]
+    focus: {
+        type: String,
+        required: [true, "Focus is required"]
     },
-    skill : [{
-        type : String,
-        required : [true, "skills are required"]
+    tasks: [{
+        type: String,
+        required: [true, "skills are required"]
     }]
 })
 
 
 const InterviewReportSchema = new mongoose.Schema({
     jobDescription: {
-        type: string,
+        type: String,
         required: [true, "jobDescription is required"]
     },
     resume: {
@@ -109,7 +109,17 @@ const InterviewReportSchema = new mongoose.Schema({
         min: 0,
         max: 100
     },
-    technicalQuestions: {}
+    technicalQuestions: [technicalQuestionsSchema],
+    behavioralQuestions: [behaviouralQuestionsSchema],
+    skillGaps: [skillGapSchema],
+    preparationPlan: [preparationPlanSchema],
+    
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users"
+    },
+},{
+    timestamps : true
 })
 
 
