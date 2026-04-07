@@ -9,10 +9,13 @@ main{
 
     .form-container{
         min-width: 350px;
-
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
+        h1{
+            color: #7c5cff;
+        }
     }
 
     form{

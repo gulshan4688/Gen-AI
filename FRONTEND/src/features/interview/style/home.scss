@@ -1,0 +1,121 @@
+.home {
+    min-height: 100vh;
+    background: #0f1117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif;
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #7c5cff; // unified accent
+    }
+
+    .interview-input-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .card {
+        background: #1a1d26;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid #2a2f3a;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        font-weight: 500;
+        color: #e6e6eb;
+        margin-bottom: 5px;
+    }
+
+    textarea {
+        width: 100%;
+        background-color: #222635;
+        min-height: 140px;
+        border: 1px solid #2a2f3a;
+        outline: none;
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 14px;
+        color: #e6e6eb;
+        transition: 0.2s;
+
+        &:focus {
+            border-color: #7c5cff;
+            box-shadow: 0 0 0 2px rgba(124, 92, 255, 0.15);
+        }
+
+        &::placeholder {
+            color: #9aa0a6;
+            opacity: 1;
+        }
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section-title {
+        font-weight: 500;
+        color: #e6e6eb;
+    }
+
+    .highlight {
+        color: #9aa0a6;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .file-label {
+        display: inline-block;
+        padding: 10px 14px;
+        border: 1px dashed #7c5cff;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #7c5cff;
+        text-align: center;
+        transition: 0.2s;
+
+        &:hover {
+            background: #7c5cff;
+            color: #fff;
+        }
+    }
+
+    .generate-btn {
+        margin-top: 10px;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: #7c5cff;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            background: #6a4df0;
+        }
+    }
+}

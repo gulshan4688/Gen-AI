@@ -7,7 +7,7 @@ function Register() {
     const navigate = useNavigate();
     // 2-way binding 
     const [username, setUsername] = useState("");
-    const [Email, setEmail] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = async (e) => {

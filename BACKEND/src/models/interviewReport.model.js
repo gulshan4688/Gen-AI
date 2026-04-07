@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const { string } = require("zod")
 
 /**
  * - job description 
@@ -118,6 +119,10 @@ const InterviewReportSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "users"
     },
+    title : {
+        type : string,
+        required : [true , "Job title is required"]
+    }
 },{
     timestamps : true
 })
